@@ -1,0 +1,20 @@
+/* Page-specific styles for the S.P.I.E.S. ID card prompt (spies.html).
+   Shared terminal look (scanlines, vignette, flicker, colors) comes from styling.css. */
+ 
+.screen.tap-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.tap-prompt {
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* Sized so the longest line (10 characters) fits the screen even if the
+       VT323 font fails to load and a wider fallback monospace font is used. */
+    font-size: min(calc((100vw - 4rem) / 7.4), 7rem);
+    line-height: 1.1;
+    letter-spacing: 0.1em;
+}

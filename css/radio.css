@@ -1,0 +1,174 @@
+/* Page-specific styles for the S.P.I.E.S. radio (radio.html).
+   Shared terminal look comes from styling.css. */
+
+.radio-content {
+    max-width: 520px;
+    margin: 0 auto;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.back-link {
+    align-self: flex-start;
+    display: inline-block;
+    min-height: 44px;
+    line-height: 44px;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8fe2ff;
+    text-decoration: none;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+    text-decoration: underline;
+}
+
+.radio-title {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0.5rem 0 1rem;
+}
+
+/* ---- Cassette ---- */
+
+.cassette-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    container-type: inline-size;
+}
+
+/* The cassette art has empty space above and below it, so crop to the tape. */
+.cassette {
+    display: block;
+    width: 100%;
+    aspect-ratio: 560 / 350;
+    object-fit: cover;
+    object-position: 0 40%;
+}
+
+/* Track name printed on the cassette's white label strip. */
+.cassette-label {
+    position: absolute;
+    left: 13%;
+    top: 20%;
+    width: 73.6%;
+    height: 13.7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #0c0c0c;
+    font-size: 8cqw;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.cassette-wrap.playing .cassette {
+    animation: cassette-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes cassette-glow {
+    0%, 100% { filter: drop-shadow(0 0 4px rgba(143, 226, 255, 0.25)); }
+    50%      { filter: drop-shadow(0 0 16px rgba(143, 226, 255, 0.7)); }
+}
+
+/* ---- Readout and seek bar ---- */
+
+.track-count {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.seek-row {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 0.75rem;
+}
+
+#seek {
+    width: 100%;
+    height: 32px;
+    accent-color: #8fe2ff;
+    cursor: pointer;
+}
+
+#seek:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.time {
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+}
+
+/* ---- Controls ---- */
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+/* Undo the full-width cyan style styling.css gives every <button>. */
+.controls button {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    line-height: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.controls button img {
+    display: block;
+    width: 72px;
+    height: 72px;
+}
+
+.controls #play img {
+    width: 104px;
+    height: 104px;
+}
+
+.controls button:hover {
+    opacity: 0.85;
+}
+
+.controls button:active {
+    transform: scale(0.94);
+}
+
+.controls button:focus-visible {
+    outline: 2px solid #8fe2ff;
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
+.status {
+    min-height: 1.6rem;
+    margin: 1rem 0 2rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cassette-wrap.playing .cassette {
+        animation: none;
+        filter: drop-shadow(0 0 10px rgba(143, 226, 255, 0.5));
+    }
+}

@@ -70,6 +70,10 @@
     transition: opacity 0.3s;
 }
 
+.radio-link + .radio-link {
+    margin-top: 1rem;
+}
+
 .radio-link:hover,
 .radio-link:focus-visible {
     opacity: 0.8;

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Team Dashboard | S.P.I.E.S.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-mark">S.P.I.E.S.</span>
+            <span class="brand-sub">Team Dashboard</span>
+        </div>
+        <div class="account" id="account" hidden>
+            <span class="account-email" id="account-email"></span>
+            <button type="button" class="ghost" id="sign-out">Sign out</button>
+        </div>
+    </header>
+
+    <!-- Shown until a team member signs in -->
+    <section class="gate" id="gate">
+        <h1>Team members only</h1>
+        <p id="gate-text">Sign in with an approved Google account to see player activity.</p>
+        <button type="button" class="primary" id="sign-in">Sign in with Google</button>
+    </section>
+
+    <!-- Shown to approved team members -->
+    <main class="dashboard" id="dashboard" hidden>
+        <section class="stats" aria-label="Summary">
+            <div class="stat"><span class="stat-value" id="stat-players">0</span><span class="stat-label">Players</span></div>
+            <div class="stat"><span class="stat-value" id="stat-active">0</span><span class="stat-label">Active last 24h</span></div>
+            <div class="stat"><span class="stat-value" id="stat-google">0</span><span class="stat-label">Signed in with Google</span></div>
+            <div class="stat"><span class="stat-value" id="stat-messages">0</span><span class="stat-label">Messages to ARTI</span></div>
+            <div class="stat"><span class="stat-value" id="stat-notes">0</span><span class="stat-label">Clues saved</span></div>
+        </section>
+
+        <section class="panel map-panel" aria-label="Progress map">
+            <div class="panel-head">
+                <h2>Progress map <span class="live" title="Updates automatically">● live</span></h2>
+                <span class="hint">Each player sits at the furthest station they've reached. Click a name to open them.</span>
+            </div>
+            <div class="route-wrap">
+                <ol class="route" id="route"></ol>
+            </div>
+        </section>
+
+        <div class="columns">
+            <section class="panel players-panel" aria-label="Players">
+                <div class="panel-head">
+                    <h2>Players <span class="live" title="Updates automatically">● live</span></h2>
+                    <button type="button" class="ghost" id="export-csv">Export CSV</button>
+                </div>
+                <label class="visually-hidden" for="search">Search players</label>
+                <input type="search" id="search" placeholder="Search name, email, ID, or clue text…">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Last seen</th>
+                                <th class="num">Msgs</th>
+                                <th class="num">Clues</th>
+                            </tr>
+                        </thead>
+                        <tbody id="player-rows"></tbody>
+                    </table>
+                    <p class="empty" id="no-players" hidden>No players yet.</p>
+                </div>
+            </section>
+
+            <section class="panel detail-panel" id="detail" aria-label="Player detail">
+                <p class="empty" id="detail-empty">Select a player to see their clues and chat.</p>
+                <div id="detail-body" hidden>
+                    <div class="panel-head">
+                        <h2 id="detail-name"></h2>
+                        <button type="button" class="ghost" id="export-transcript">Download chat</button>
+                    </div>
+                    <dl class="facts" id="detail-facts"></dl>
+                    <h3>Progress</h3>
+                    <ul class="checklist" id="detail-progress"></ul>
+                    <h3>Clues ARTI saved</h3>
+                    <ul class="notes" id="detail-notes"></ul>
+                    <h3>Chat with ARTI</h3>
+                    <div class="transcript" id="detail-transcript"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

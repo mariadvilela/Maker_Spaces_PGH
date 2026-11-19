@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S.P.I.E.S. Blueprints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styling.css">
+<link rel="stylesheet" href="css/blueprint.css">
+</head>
+<body>
+    <div class="terminal">
+        <div class="scanlines"></div>
+        <main class="screen blueprint-screen">
+            <a class="back-link" href="home.html">&larr; Home</a>
+
+            <div class="content blueprint-content">
+
+                <!-- Step 1: password -->
+                <section id="gate">
+                    <h1 class="blueprint-title">Restricted access</h1>
+                    <p class="gate-note">Enter password to open the blueprint database.</p>
+                    <form id="gate-form" autocomplete="off">
+                        <label for="password" class="visually-hidden">Password</label>
+                        <input type="password" id="password" name="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+                        <p class="password-error" id="password-error" role="alert"></p>
+                        <button type="submit">Enter</button>
+                    </form>
+                </section>
+
+                <!-- Step 2: shown after the correct password -->
+                <section id="database" hidden>
+                    <p class="access-granted">Access granted</p>
+                    <h1 class="blueprint-title" id="database-title" tabindex="-1">Blueprint database</h1>
+                    <ul class="blueprint-list">
+                        <li><a href="energysource.html">&gt; energy source</a></li>
+                        <li><a href="mobility.html">&gt; mobility</a></li>
+                        <li><a href="chassis.html">&gt; chassis</a></li>
+                    </ul>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="js/blueprint.js"></script>
+    <script type="module" src="js/track.js"></script>
+</body>
+</html>

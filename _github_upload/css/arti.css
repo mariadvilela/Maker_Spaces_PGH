@@ -1,0 +1,259 @@
+/* Page-specific styles for A.R.T.I. (arti.html).
+   Shared terminal look comes from styling.css. */
+
+/* The chat fills the screen: header on top, messages in the middle,
+   message box pinned to the bottom. */
+.screen.arti-screen {
+    padding: 1rem;
+    display: flex;
+}
+
+.arti-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 720px;
+    min-height: 0;
+    margin: 0 auto;
+}
+
+.arti-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.back-link {
+    display: inline-block;
+    min-height: 44px;
+    line-height: 44px;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8fe2ff;
+    text-decoration: none;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+    text-decoration: underline;
+}
+
+.arti-title {
+    text-align: center;
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+    letter-spacing: 0.15em;
+    margin: 0.25rem 0 0.75rem;
+}
+
+/* Undo the full-width cyan style styling.css gives every <button>. */
+.memory-toggle,
+.account-button {
+    width: auto;
+    margin: 0;
+    min-height: 44px;
+    padding: 0.4rem 0.9rem;
+    background: transparent;
+    color: #8fe2ff;
+    border: 1px solid #8fe2ff;
+    font-size: 1.3rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.memory-toggle[aria-expanded="true"] {
+    background: #8fe2ff;
+    color: #09213a;
+}
+
+/* ---- Memory panel ---- */
+
+.memory-panel {
+    border: 1px dashed rgba(143, 226, 255, 0.5);
+    background: rgba(9, 33, 58, 0.6);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+.memory-title {
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.memory-list {
+    list-style: none;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.memory-list li {
+    font-family: inherit;
+    padding: 0.3rem 0;
+    border-bottom: 1px dotted rgba(143, 226, 255, 0.2);
+}
+
+.memory-list li::before {
+    content: "> ";
+    font-family: "VT323", monospace;
+}
+
+.memory-list .empty {
+    color: rgba(143, 226, 255, 0.6);
+}
+
+.account {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.account-status {
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size: 0.9rem;
+    color: rgba(143, 226, 255, 0.8);
+    flex: 1 1 200px;
+}
+
+/* ---- Messages ---- */
+
+.chat-log {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.5rem 0.25rem 1rem;
+    border-top: 1px dashed rgba(143, 226, 255, 0.3);
+}
+
+.message {
+    max-width: 88%;
+    padding: 0.6rem 0.85rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.message,
+.message * {
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.message .who {
+    display: block;
+    font-family: "VT323", monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 0.15rem;
+}
+
+.message.arti {
+    align-self: flex-start;
+    border: 1px solid rgba(143, 226, 255, 0.4);
+    background: rgba(143, 226, 255, 0.06);
+}
+
+.message.player {
+    align-self: flex-end;
+    background: #8fe2ff;
+    color: #09213a;
+}
+
+.message.system {
+    align-self: center;
+    max-width: 100%;
+    text-align: center;
+    color: rgba(143, 226, 255, 0.7);
+    border: 1px dashed rgba(143, 226, 255, 0.3);
+}
+
+.message.thinking .dots::after {
+    content: "...";
+    animation: blink 1s infinite;
+}
+
+.saved-note {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.85rem !important;
+    opacity: 0.7;
+}
+
+/* ---- Input ---- */
+
+.chat-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgba(143, 226, 255, 0.3);
+}
+
+.chat-form textarea {
+    flex: 1;
+    min-height: 48px;
+    max-height: 30vh;
+    resize: none;
+    background: transparent;
+    border: 1px solid #8fe2ff;
+    color: #8fe2ff;
+    padding: 0.6rem;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    /* 16px+ stops iPhones zooming in when the box is tapped. */
+    font-size: 1rem;
+    line-height: 1.4;
+    outline: none;
+}
+
+.chat-form textarea::placeholder {
+    color: rgba(143, 226, 255, 0.45);
+}
+
+.chat-form textarea:focus-visible {
+    box-shadow: 0 0 0 2px rgba(143, 226, 255, 0.5);
+}
+
+.chat-form button {
+    width: auto;
+    min-width: 88px;
+    min-height: 48px;
+    margin: 0;
+    padding: 0 1rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.chat-form button:disabled,
+.chat-form textarea:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .message.thinking .dots::after {
+        animation: none;
+    }
+}

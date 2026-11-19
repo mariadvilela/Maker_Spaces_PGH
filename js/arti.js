@@ -13,7 +13,7 @@ import { buildSystemPrompt } from "./arti-prompt.js";
 import { buildContents, parseReply, classifyError, ERROR_TEXT, HISTORY_LIMIT } from "./arti-core.js";
 
 const GREETING =
-  "A.R.T.I. online. Agent, Natalie is still missing. Tell me anything you discover and I will keep it on file. Ask me what you've found at any time.";
+  "A.R.T.I. online. Agent, Agent N is still missing. Tell me anything you discover and I will keep it on file. Ask me what you've found at any time.";
 
 const els = {
   log: document.getElementById("chat-log"),

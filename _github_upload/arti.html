@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
+<title>A.R.T.I. | S.P.I.E.S.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styling.css">
+<link rel="stylesheet" href="css/arti.css">
+</head>
+<body>
+    <div class="terminal">
+        <div class="scanlines"></div>
+        <main class="screen arti-screen">
+            <div class="content arti-content">
+
+                <div class="arti-topbar">
+                    <a class="back-link" href="home.html">&larr; Home</a>
+                    <button type="button" class="memory-toggle" id="memory-toggle" aria-expanded="false" aria-controls="memory-panel">
+                        Agent file
+                    </button>
+                </div>
+
+                <h1 class="arti-title">A.R.T.I.</h1>
+
+                <section class="memory-panel" id="memory-panel" hidden aria-label="What ARTI remembers">
+                    <h2 class="memory-title">What ARTI remembers</h2>
+                    <ul class="memory-list" id="memory-list"></ul>
+                    <div class="account" id="account">
+                        <p class="account-status" id="account-status"></p>
+                        <button type="button" class="account-button" id="google-button" hidden>Sign in with Google</button>
+                    </div>
+                </section>
+
+                <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Conversation with ARTI"></div>
+
+                <form class="chat-form" id="chat-form" autocomplete="off">
+                    <label class="visually-hidden" for="chat-input">Message ARTI</label>
+                    <textarea id="chat-input" rows="1" maxlength="1000" placeholder="Talk to ARTI..." disabled></textarea>
+                    <button type="submit" id="send-button" disabled>Send</button>
+                </form>
+
+            </div>
+        </main>
+    </div>
+    <script type="module" src="js/arti.js"></script>
+    <script type="module" src="js/track.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+rules_version = '2';
+
+// Players can only read and write their own data.
+// Team members listed in the "admins" collection can read everyone's data
+// (used by dashboard.html). To add a team member: Firebase console ->
+// Firestore Database -> admins -> Add document -> Document ID = their Google
+// email (lowercase), add any field (e.g. name). Remove the document to revoke.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /players/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly([
+             'signIn', 'name', 'email', 'lastSeen', 'firstSeen',
+             'notes', 'messageCount', 'lastMessageAt', 'visited', 'milestones'])
+        && (!('milestones' in request.resource.data)
+            || request.resource.data.milestones == resource.data.milestones)
+        && (!('notes' in request.resource.data)
+            || (request.resource.data.notes is list && request.resource.data.notes.size() <= 60));
+      // Team members can tick in-person milestones (e.g. attended Open Lab).
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['milestones']);
+      allow delete: if false;
+
+      // Chat log: players can add messages but never edit or delete them,
+      // so the team's record stays complete.
+      match /messages/{messageId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create: if isOwner(uid)
+          && request.resource.data.role in ['player', 'arti']
+          && request.resource.data.text is string
+          && request.resource.data.text.size() <= 4000;
+        allow update, delete: if false;
+      }
+    }
+
+    // Team allowlist. Edited only in the Firebase console.
+    // A signed-in person may check whether they themselves are on it.
+    match /admins/{email} {
+      allow get: if request.auth != null && request.auth.token.email == email;
+      allow list, write: if false;
+    }
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+  }
+}

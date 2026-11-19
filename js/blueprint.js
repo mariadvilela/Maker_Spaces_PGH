@@ -1,4 +1,4 @@
-const PASSWORD = "BLUEPRINTS";
+const PASSWORD = "MAKER";
 
 const form = document.getElementById("gate-form");
 const input = document.getElementById("password");

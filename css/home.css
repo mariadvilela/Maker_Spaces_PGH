@@ -42,10 +42,6 @@
     margin-top: 1rem;
 }
 
-.mission-box {
-    border-style: dashed;
-}
-
 /* Pushes the button to the bottom of the screen on tall displays,
    and sits just after the last box on short ones. */
 .radio-wrap {

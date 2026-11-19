@@ -1,0 +1,69 @@
+/* Shared styles for the locked blueprint pages (cranium.html, locomotion.html,
+   core.html). The password box, error message, title and back link come from
+   blueprint.css; this file adds the hint box and the revealed image. */
+
+.vault-content {
+    max-width: 720px;
+}
+
+.vault-content #gate {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ---- Hint box ---- */
+
+.hint-box {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    text-align: left;
+    border: 1px dashed #8fe2ff;
+    background: rgba(143, 226, 255, 0.04);
+}
+
+.hint-heading {
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* Readable body font, same as the home page. The "p" is targeted directly
+   because styling.css sets VT323 on every element. */
+.hint-box p {
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.hint-box p + p {
+    margin-top: 0.9rem;
+}
+
+/* ---- Revealed blueprint ---- */
+
+.blueprint-link {
+    display: block;
+}
+
+.blueprint-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #8fe2ff;
+    box-shadow: 0 0 14px rgba(143, 226, 255, 0.35);
+}
+
+.zoom-note {
+    margin: 0.75rem 0 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+}
+
+/* The title is focused by script after unlocking (for screen readers);
+   don't draw a box around it. */
+#reveal-title:focus {
+    outline: none;
+}

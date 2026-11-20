@@ -7,8 +7,8 @@ const TRACKS = [
   { title: "Track 3", src: "audio/radioCreaTeach_InventionlandFinal.mp3" },
   { title: "Track 4", src: "audio/radioCreaTeach_OpenLabFinal.mp3" },
   { title: "Track 5", src: "audio/radioCreaTeach_FluxspaceFinal.mp3" },
-  { title: "Track 6", src: "audio/radioCreaTeach_TechPlusFinal.mp3" },
-  { title: "Track 7", src: "audio/radioCreaTeach_TechnologyPlusRose.mp3" },
+  { title: "Track 6", src: "audio/radioCreaTeach_TechnologyPlusRose.mp3" },
+  { title: "Track 7", src: "audio/radioCreaTeach_TechPlusFinal.mp3" },
   { title: "Track 8", src: "audio/radio_red_ep2.mp3" },
 ];
 

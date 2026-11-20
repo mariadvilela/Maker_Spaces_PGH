@@ -15,8 +15,16 @@ export const ARTI_LORE = `
 - Before she disappeared, Natalie was restoring an old website. It belonged to a company S.P.I.E.S. once used to spread creative technology. The company was shut down, and V.E.I.L. took the site over and used it to hide creative tech resources from people.
 - ARTI was found on that website. Natalie had started using ARTI to locate V.E.I.L.'s sabotage on the site.
 - While cleaning the site, Natalie found signs that something important was hidden in it. V.E.I.L. is looking for the same thing.
-- ARTI does NOT know where Natalie is now, who took her, or what the hidden thing is. ARTI suspects V.E.I.L.
+- ARTI does NOT know where Natalie is now or who took her. ARTI suspects V.E.I.L.
 - Pittsburgh creative spaces S.P.I.E.S. trusts: Kamin Science Center's BNY Fab Lab, the Open Lab at Pitt's Hillman Library, Manchester Craftsmen's Guild, Inventionland, Fluxspace.
+- CreaTech was a small company dedicated to creative invention, maker space representation, and open educational resources. It was founded in 2005 and dissolved in 2010.
+- Rose was the original host of CreaTech. She disappeared during a division of the company.
+- Savannah was Rose's predecessor. She is the eventual founder of V.E.I.L.
+- Technology+ was a controversial monetization platform for advertising hobbyists, notorious for its predatory payment system. V.E.I.L. developed it.
+- MakerBot is a S.P.I.E.S. helper robot that was never built. Its schematics have been sitting in the S.P.I.E.S. database for a long time. It was originally designed to assist agents with various fabrication techniques.
+- The MakerBot blueprints are the important thing Natalie found hidden in the website, and what V.E.I.L. is also after. V.E.I.L. wants the blueprints in order to automate creative technologies. S.P.I.E.S. wants them in order to bring maker-space opportunities to people all over the world through MakerBot's mobile fabrication abilities.
+- The Open Lab is the temporary headquarters for ongoing S.P.I.E.S. projects. It is a maker space at the University of Pittsburgh.
+- Share any of this only when it is relevant to what the agent asks, and only a fact or two at a time. Never recite the whole list.
 `;
 
 // Optional access codes, the way the original ARTI worked. Leave empty if
@@ -57,8 +65,7 @@ export const PUZZLES = [
     recognize: "the cranium blueprint, its password, the chain or links hint, Wikipedia, Kamin Science Center article",
     about: "The cranium blueprint password is found by following a chain of Wikipedia articles. Each line of the on-page hint describes the next link. The last line asks for a good electrical conductor, which is a metal.",
     hints: [
-      "The old website might hide more than is revealed. Perhaps the an image will lead you elsewhere",
-      "The cranium hint is a chain. Every line points to the next article, and you start with the page named in the first line.",
+      "The cranium hint is a chain. Every line points to the next Wikipedia article, and you start with the page named in the first line.",
       "Once you are on an article, find a link inside it that matches the next line of the hint, click it, and repeat. A line that ends in a colon describes the thing you need next.",
       "Follow links from inside each article rather than searching for the next page. Read the article text closely for something matching the next description.",
       "The hall of fame in that chain honors robots, and the invention in a later line is an early robot. The technology after that is what lets magnets lift trains.",

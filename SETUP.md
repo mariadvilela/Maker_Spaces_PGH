@@ -115,6 +115,7 @@ The two players already in the database are from testing and can be deleted.
 Edit **`js/arti-prompt.js`** (any text editor works):
 - `ARTI_LORE`: story facts ARTI knows
 - `HINTS`: vague nudges ARTI may give stuck players
+- `PUZZLES`: puzzle help. Each puzzle has a ladder of hints ARTI gives one at a time, easiest first. Never put a puzzle's answer in here
 - `ACCESS_CODES`: optional codes, the way the original ARTI worked
 - The **RULES** section: personality and limits (for example, ARTI never decodes clues for players)
 Anything in that file can be seen in the page source, so don't put final answers there.

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S.P.I.E.S. Blueprint: Locomotion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styling.css">
+<link rel="stylesheet" href="css/blueprint.css">
+<link rel="stylesheet" href="css/vault.css">
+</head>
+<body>
+    <div class="terminal">
+        <div class="scanlines"></div>
+        <main class="screen blueprint-screen" id="vault" data-passwords="TITANIUM">
+            <a class="back-link" href="blueprinthome.html">&larr; Blueprints</a>
+
+            <div class="content blueprint-content vault-content">
+
+                <!-- Step 1: hint and password -->
+                <section id="gate">
+                    <h1 class="blueprint-title">Locomotion</h1>
+
+                    <div class="hint-box">
+                        <h2 class="hint-heading">Hint</h2>
+                        <p>Further instruction will follow.</p>
+                    </div>
+
+                    <form id="gate-form" autocomplete="off">
+                        <label for="password" class="visually-hidden">Password</label>
+                        <input type="password" id="password" name="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" required>
+                        <p class="password-error" id="password-error" role="alert"></p>
+                        <button type="submit">Enter</button>
+                    </form>
+                </section>
+
+                <!-- Step 2: shown after the correct password -->
+                <section id="reveal" hidden>
+                    <p class="access-granted">Access granted</p>
+                    <h1 class="blueprint-title" id="reveal-title" tabindex="-1">Locomotion</h1>
+                    <a class="blueprint-link" href="images/blueprints/locomotion.png" target="_blank" rel="noopener">
+                        <img class="blueprint-image" id="blueprint-image" data-src="images/blueprints/locomotion.png" alt="Maker-bot locomotion: a hand-drawn blueprint of the robot's legs from two angles.">
+                    </a>
+                    <p class="zoom-note">Tap the image to enlarge</p>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="js/vault.js"></script>
+    <script type="module" src="js/track.js"></script>
+</body>
+</html>
